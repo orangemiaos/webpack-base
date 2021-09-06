@@ -9,7 +9,7 @@ module.exports = {
     path: path.resolve(__dirname, "bundle"),
     filename: "bundle.js",
     // 自定义文件名
-    // assetModuleFilename: "images/[name]_[hash][ext]",
+    assetModuleFilename: "images/[name]_[hash][ext]",
     // publicPath: "https://cdn.com",
     clean: true,
   },
