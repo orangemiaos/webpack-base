@@ -1,9 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
 
 module.exports = {
-  mode: "development",
   entry: "./src/index.js",
   output: {
     path: path.resolve(__dirname, "bundle"),
@@ -13,24 +11,11 @@ module.exports = {
     // publicPath: "https://cdn.com",
     clean: true,
   },
-  devtool: "inline-source-map",
-  devServer: {
-    // 告知 dev server，从什么位置查找文件
-    static: "./bundle",
-    // 服务启动后打开浏览器
-    open: true,
-    // 监听的端口号
-    port: 8000,
-    hot: true,
-    // proxy: {
-    //   "/api": "http://localhost:3000",
-    // },
-  },
+  devtool: "source-map",
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
     }),
-    new webpack.HotModuleReplacementPlugin(),
   ],
   module: {
     rules: [
