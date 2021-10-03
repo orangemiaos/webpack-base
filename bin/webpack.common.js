@@ -2,16 +2,25 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: path.resolve(__dirname, "../src/index.js"),
   output: {
-    path: path.resolve(__dirname, "bundle"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, "../bundle"),
+    filename: "[name].js",
+    // filename: "bundle.js",
     // 自定义文件名
     assetModuleFilename: "images/[name]_[hash][ext]",
     // publicPath: "https://cdn.com",
     clean: true,
   },
-  devtool: "source-map",
+  // devtool: "source-map",
+  optimization: {
+    splitChunks: {
+      chunks: "all", // all async initial
+      // cacheGroups: {
+      //   default: false,
+      // },
+    },
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./index.html",
