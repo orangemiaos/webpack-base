@@ -15,7 +15,7 @@ module.exports = {
   // devtool: "source-map",
   optimization: {
     splitChunks: {
-      chunks: "all", // all async initial
+      chunks: "async", // all async initial
       // cacheGroups: {
       //   default: false,
       // },
